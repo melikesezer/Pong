@@ -5,6 +5,7 @@ import flash.display.StageScaleMode;
 import flash.events.Event;
 import flash.events.KeyboardEvent;
 import flash.ui.Keyboard;
+
 import objects.Ball;
 import objects.Wall;
 	
@@ -15,7 +16,7 @@ import objects.Wall;
 		private var wallL : Wall;
 		private var wallR : Wall;
 		private var ball : Ball;
-		
+	
 	
 		public function Main()
 		{
@@ -30,11 +31,7 @@ import objects.Wall;
 		{
 			ball.move();
 			
-			if((ball.x > wallL.x )&& (ball.x < wallL.x + wallL.width))
-				ball.collision(1);	
-			
-		 	if((ball.y >wallR.y) && (ball.y < wallR.y +wallR.height))
-				ball.collision(0);
+			ballMove();
 		
 		}
 		
@@ -67,6 +64,7 @@ import objects.Wall;
 			var key:uint = event.keyCode;
 
 			if(key == Keyboard.DOWN )
+			
 				wallR.move(1) ;
 			
 			else if(key == Keyboard.UP )
@@ -80,6 +78,14 @@ import objects.Wall;
 				
 				
 		}	
-					
+		public function ballMove(): void{
+			
+			if(wallL.hitTestObject(ball) == true)
+				ball.collision(1);	
+			if(wallR.hitTestObject(ball) == true)
+				ball.collision(1);
+		
+		}
+	
 	}
 }

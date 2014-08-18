@@ -42,8 +42,9 @@ package objects
 		{
 			if(direction == -1 && y > _upperBound)
 				y -= step;// Move Up;
+			
 			else if(direction == 1 && y < _lowerBound)
-				y += step;;// Move Down;
+				y += step;// Move Down;
 		}
 	}
 }

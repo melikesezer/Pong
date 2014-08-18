@@ -7,7 +7,7 @@ package objects
 	
 	public class Ball extends Sprite
 	{
-		private const maxVelocity : Number = 8;
+		private const maxVelocity : Number = 6;
 		
 		public var currentSpeed : Point;
 		
@@ -34,7 +34,7 @@ package objects
 		{
 			x += currentSpeed.x;
 			y += currentSpeed.y;
-			
+		
 			if(this.x > stage.stageWidth || this.x <0)
 				currentSpeed.x *= -1;
 			
